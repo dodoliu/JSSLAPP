@@ -15,7 +15,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+
+    //设置进入正式界面后，将状态栏显示出来
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    
+    
+    
+    
+    [NSThread sleepForTimeInterval:3.0];
+    
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 
