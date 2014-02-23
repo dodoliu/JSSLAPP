@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QueryViewController : UIViewController
+@interface QueryViewController : UIViewController<UITextFieldDelegate>
+
+@property(nonatomic,strong)UITextField *queryText;
 
 @end
