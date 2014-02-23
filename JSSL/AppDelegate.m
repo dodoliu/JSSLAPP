@@ -7,25 +7,47 @@
 //
 
 #import "AppDelegate.h"
+#import "BookrackViewController.h"
+#import "QueryViewController.h"
+#import "SettingsViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    // Override point for customization after application launch. 
+    self.window.backgroundColor = [UIColor lightGrayColor];
 
     //设置进入正式界面后，将状态栏显示出来
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    //让主线程暂停2秒，等待启动界面显示
+//    [NSThread sleepForTimeInterval:1.0];
     
+    BookrackViewController *bookrackVC = [[BookrackViewController alloc]init];
+    bookrackVC.tabBarItem = [[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:0] autorelease];
+    bookrackVC.title = @"书架";
+    QueryViewController *queryVC = [[QueryViewController alloc]init];
+    queryVC.tabBarItem = [[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:1] autorelease];
+    queryVC.title = @"搜索";
+    SettingsViewController *settingVC = [[SettingsViewController alloc] init];
+    settingVC.tabBarItem = [[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:2] autorelease];
+    settingVC.title = @"设置";
     
+    //存放viewcontroller的数组
+    NSArray *vcArray = [[NSArray alloc] initWithObjects:bookrackVC,queryVC,settingVC, nil];
     
+    UITabBarController *rootTBC = [[[UITabBarController alloc] init] autorelease];
+
+    rootTBC.viewControllers = vcArray;
     
-    [NSThread sleepForTimeInterval:3.0];
+    self.window.rootViewController = rootTBC;
+    
+    [bookrackVC release];
+    [queryVC release];
+    [settingVC release];
     
     [self.window makeKeyAndVisible];
-
     return YES;
 }
 

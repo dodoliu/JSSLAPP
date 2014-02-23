@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		F4463FFB18B87529000D1392 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = F4463FFA18B87529000D1392 /* LaunchImage.png */; };
-		F446400218B880F5000D1392 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F446400118B880F5000D1392 /* LaunchViewController.m */; };
 		F446400418B889B8000D1392 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F446400318B889B8000D1392 /* LaunchImage@2x.png */; };
 		F446400818B88ED4000D1392 /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F446400718B88ED4000D1392 /* LaunchImage-568h@2x.png */; };
 		F446400C18B8974F000D1392 /* LaunchImage@2x-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F446400B18B8974F000D1392 /* LaunchImage@2x-1.png */; };
 		F446400E18B897B9000D1392 /* LaunchImage@2x-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F446400D18B897B9000D1392 /* LaunchImage@2x-2.png */; };
+		F446401C18B9A04D000D1392 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = F446401718B9A04D000D1392 /* TFHpple.m */; };
+		F446401D18B9A04D000D1392 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F446401918B9A04D000D1392 /* TFHppleElement.m */; };
+		F446401E18B9A04D000D1392 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F446401B18B9A04D000D1392 /* XPathQuery.m */; };
+		F446402018B9A164000D1392 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F446401F18B9A164000D1392 /* libxml2.dylib */; };
+		F446402318B9A284000D1392 /* QueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F446402218B9A284000D1392 /* QueryViewController.m */; };
+		F446402618B9A379000D1392 /* BookrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F446402518B9A379000D1392 /* BookrackViewController.m */; };
+		F446402918B9BA28000D1392 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F446402818B9BA28000D1392 /* SettingsViewController.m */; };
+		F446402B18B9EB9D000D1392 /* Query_left.png in Resources */ = {isa = PBXBuildFile; fileRef = F446402A18B9EB9D000D1392 /* Query_left.png */; };
+		F446402E18B9F29A000D1392 /* UIImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F446402D18B9F29A000D1392 /* UIImageHelper.m */; };
 		F4F7EC5D18B85CAA00236DE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F7EC5C18B85CAA00236DE3 /* Foundation.framework */; };
 		F4F7EC5F18B85CAA00236DE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F7EC5E18B85CAA00236DE3 /* CoreGraphics.framework */; };
 		F4F7EC6118B85CAA00236DE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F7EC6018B85CAA00236DE3 /* UIKit.framework */; };
@@ -40,12 +48,26 @@
 
 /* Begin PBXFileReference section */
 		F4463FFA18B87529000D1392 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
-		F446400018B880F5000D1392 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
-		F446400118B880F5000D1392 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		F446400318B889B8000D1392 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
 		F446400718B88ED4000D1392 /* LaunchImage-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-568h@2x.png"; sourceTree = "<group>"; };
 		F446400B18B8974F000D1392 /* LaunchImage@2x-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x-1.png"; sourceTree = "<group>"; };
 		F446400D18B897B9000D1392 /* LaunchImage@2x-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x-2.png"; sourceTree = "<group>"; };
+		F446401618B9A04D000D1392 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		F446401718B9A04D000D1392 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		F446401818B9A04D000D1392 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		F446401918B9A04D000D1392 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		F446401A18B9A04D000D1392 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		F446401B18B9A04D000D1392 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		F446401F18B9A164000D1392 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		F446402118B9A284000D1392 /* QueryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryViewController.h; sourceTree = "<group>"; };
+		F446402218B9A284000D1392 /* QueryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryViewController.m; sourceTree = "<group>"; };
+		F446402418B9A379000D1392 /* BookrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookrackViewController.h; sourceTree = "<group>"; };
+		F446402518B9A379000D1392 /* BookrackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookrackViewController.m; sourceTree = "<group>"; };
+		F446402718B9BA28000D1392 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		F446402818B9BA28000D1392 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		F446402A18B9EB9D000D1392 /* Query_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Query_left.png; sourceTree = "<group>"; };
+		F446402C18B9F29A000D1392 /* UIImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageHelper.h; sourceTree = "<group>"; };
+		F446402D18B9F29A000D1392 /* UIImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageHelper.m; sourceTree = "<group>"; };
 		F4F7EC5918B85CAA00236DE3 /* JSSL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSSL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F7EC5C18B85CAA00236DE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F4F7EC5E18B85CAA00236DE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -70,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F446402018B9A164000D1392 /* libxml2.dylib in Frameworks */,
 				F4F7EC8C18B860A400236DE3 /* QuartzCore.framework in Frameworks */,
 				F4F7EC5F18B85CAA00236DE3 /* CoreGraphics.framework in Frameworks */,
 				F4F7EC6118B85CAA00236DE3 /* UIKit.framework in Frameworks */,
@@ -93,10 +116,44 @@
 		F4463FFC18B88077000D1392 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F446400018B880F5000D1392 /* LaunchViewController.h */,
-				F446400118B880F5000D1392 /* LaunchViewController.m */,
+				F446402418B9A379000D1392 /* BookrackViewController.h */,
+				F446402518B9A379000D1392 /* BookrackViewController.m */,
+				F446402118B9A284000D1392 /* QueryViewController.h */,
+				F446402218B9A284000D1392 /* QueryViewController.m */,
+				F446402718B9BA28000D1392 /* SettingsViewController.h */,
+				F446402818B9BA28000D1392 /* SettingsViewController.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		F446401118B996C0000D1392 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Vendors;
+			sourceTree = "<group>";
+		};
+		F446401218B9970C000D1392 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F4F7EC8D18B866D900236DE3 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F446401518B99B14000D1392 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F446401618B9A04D000D1392 /* TFHpple.h */,
+				F446401718B9A04D000D1392 /* TFHpple.m */,
+				F446401818B9A04D000D1392 /* TFHppleElement.h */,
+				F446401918B9A04D000D1392 /* TFHppleElement.m */,
+				F446401A18B9A04D000D1392 /* XPathQuery.h */,
+				F446401B18B9A04D000D1392 /* XPathQuery.m */,
+				F446402C18B9F29A000D1392 /* UIImageHelper.h */,
+				F446402D18B9F29A000D1392 /* UIImageHelper.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		F4F7EC5018B85CAA00236DE3 = {
@@ -121,6 +178,7 @@
 		F4F7EC5B18B85CAA00236DE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F446401F18B9A164000D1392 /* libxml2.dylib */,
 				F4F7EC8B18B860A400236DE3 /* QuartzCore.framework */,
 				F4F7EC5C18B85CAA00236DE3 /* Foundation.framework */,
 				F4F7EC5E18B85CAA00236DE3 /* CoreGraphics.framework */,
@@ -133,12 +191,14 @@
 		F4F7EC6218B85CAA00236DE3 /* JSSL */ = {
 			isa = PBXGroup;
 			children = (
-				F4463FFC18B88077000D1392 /* Views */,
-				F4F7EC8D18B866D900236DE3 /* Images */,
 				F4F7EC6B18B85CAA00236DE3 /* AppDelegate.h */,
 				F4F7EC6C18B85CAA00236DE3 /* AppDelegate.m */,
 				F4F7EC6E18B85CAA00236DE3 /* Images.xcassets */,
 				F4F7EC6318B85CAA00236DE3 /* Supporting Files */,
+				F446401518B99B14000D1392 /* Helpers */,
+				F446401218B9970C000D1392 /* Resources */,
+				F446401118B996C0000D1392 /* Vendors */,
+				F4463FFC18B88077000D1392 /* Views */,
 			);
 			path = JSSL;
 			sourceTree = "<group>";
@@ -175,6 +235,7 @@
 		F4F7EC8D18B866D900236DE3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F446402A18B9EB9D000D1392 /* Query_left.png */,
 				F446400D18B897B9000D1392 /* LaunchImage@2x-2.png */,
 				F446400B18B8974F000D1392 /* LaunchImage@2x-1.png */,
 				F446400718B88ED4000D1392 /* LaunchImage-568h@2x.png */,
@@ -262,6 +323,7 @@
 				F446400418B889B8000D1392 /* LaunchImage@2x.png in Resources */,
 				F4F7EC6718B85CAA00236DE3 /* InfoPlist.strings in Resources */,
 				F4F7EC6F18B85CAA00236DE3 /* Images.xcassets in Resources */,
+				F446402B18B9EB9D000D1392 /* Query_left.png in Resources */,
 				F446400818B88ED4000D1392 /* LaunchImage-568h@2x.png in Resources */,
 				F446400E18B897B9000D1392 /* LaunchImage@2x-2.png in Resources */,
 				F4463FFB18B87529000D1392 /* LaunchImage.png in Resources */,
@@ -284,9 +346,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F446401D18B9A04D000D1392 /* TFHppleElement.m in Sources */,
 				F4F7EC6D18B85CAA00236DE3 /* AppDelegate.m in Sources */,
+				F446401E18B9A04D000D1392 /* XPathQuery.m in Sources */,
+				F446402918B9BA28000D1392 /* SettingsViewController.m in Sources */,
+				F446402618B9A379000D1392 /* BookrackViewController.m in Sources */,
+				F446402E18B9F29A000D1392 /* UIImageHelper.m in Sources */,
+				F446401C18B9A04D000D1392 /* TFHpple.m in Sources */,
 				F4F7EC6918B85CAA00236DE3 /* main.m in Sources */,
-				F446400218B880F5000D1392 /* LaunchViewController.m in Sources */,
+				F446402318B9A284000D1392 /* QueryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +478,11 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSSL/JSSL-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SDK_ROOT}/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "JSSL/JSSL-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +498,11 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSSL/JSSL-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SDK_ROOT}/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "JSSL/JSSL-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

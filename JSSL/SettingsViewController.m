@@ -1,20 +1,18 @@
 //
-//  LaunchViewController.m
+//  SettingsViewController.m
 //  JSSL
 //
-//  Created by LDY on 14-2-22.
+//  Created by LDY on 14-2-23.
 //  Copyright (c) 2014年 DONLIU1987. All rights reserved.
 //
 
-#import "LaunchViewController.h"
+#import "SettingsViewController.h"
 
-@interface LaunchViewController ()
+@interface SettingsViewController ()
 
 @end
 
-@implementation LaunchViewController
-
-@synthesize launchIView;
+@implementation SettingsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,12 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    //launchIView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    //launchIView.image =[UIImage imageNamed:@"Default.png"];
-    self.view.backgroundColor = [UIColor redColor];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
