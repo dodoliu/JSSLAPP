@@ -15,8 +15,10 @@
 @end
 
 @implementation QueryViewController
-
-@synthesize queryText;
+//
+//@synthesize queryText;
+//@synthesize bookTableView;
+//@synthesize aHarfArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +41,8 @@
     [self.view addGestureRecognizer:tap];
     [tap release];
     
+    
+     //aHarfArray = [[NSArray alloc] initWithObjects:@"A",@"B",@"C",@"D", nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +61,7 @@
 //绘制书架视图
 -(void) drawViewController
 {
-    CGRect cgText,cgBtn;
+    CGRect cgText,cgBtn;//,//cgTbView;
     //判断系统是ios6还是7
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
         cgText = CGRectMake(5,22, self.view.frame.size.width-55, 25);
@@ -83,7 +87,7 @@
     [queryText setLeftViewMode:UITextFieldViewModeAlways];
     //隐藏键盘
     //声明文本框的代理为当前controller，让当前controller去实现把键盘往下收的方法。这个方法在UITextFieldDelegate里所以我们要采用UITextFieldDelegate这个协议
-    queryText.delegate = self;
+    [queryText setDelegate:self];
     
     
     UIButton *queryBtn = [[UIButton alloc] initWithFrame:cgBtn];
@@ -94,9 +98,6 @@
     
     [queryBtn setTitle:@"搜索" forState:UIControlStateNormal];
     [queryBtn addTarget:self action:@selector(btnQuery) forControlEvents:UIControlEventTouchUpInside];
-
-    UISearchBar *sb = [[UISearchBar alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    [self.view addSubview:sb];
     
     
     [self.view addSubview:queryText];
@@ -115,27 +116,53 @@
     //访问的url
     //http://so.txt99.com/cse/search?q=是&s=11057906702270625234
     //cse/search?q=死神&s=11057906702270625234
-    NSURL *url = [NSURL URLWithString:@"http://so.txt99.com/cse/search?q=shen&s=11057906702270625234"];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    
-    if(response == nil)
+    NSString *qtValue = [queryText text];
+    if([qtValue length] > 0)
     {
-        NSLog(@"没有返回");
+        NSMutableString *mutableStr = [NSMutableString stringWithString:@"http://so.txt99.com/cse/search?q="];
+        //对输入的nsstring进行编码
+        [mutableStr appendString:[qtValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        [mutableStr appendString:@"&s=11057906702270625234"];
+        
+        NSURL *url = [NSURL URLWithString:mutableStr];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        
+        if(response == nil)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"搜索失败！" message:@"服务器当前状态不可用，请联系管理员！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            return;
+        }
+        
+        aHarfArray = [self parseData:response];
+        aHarfContentArray = [self getAContent:aHarfArray];
+        
+        //添加书籍显示的表格
+        if([[[UIDevice currentDevice] systemVersion] floatValue]>= 7.0)
+        {
+            bookTableView = [[UITableView alloc]initWithFrame:CGRectMake(5, 52, self.view.frame.size.width-10, self.view.frame.size.height-50) style:UITableViewStylePlain];
+        }
+        else
+        {
+            bookTableView = [[UITableView alloc]initWithFrame:CGRectMake(5, 32, self.view.frame.size.width-10, self.view.frame.size.height-50) style:UITableViewStylePlain];
+        }
+        //指定tableview的委托为当前controller
+        [bookTableView setDelegate:self];
+        //指定datasource的委托为当前controller
+        [bookTableView setDataSource:self];
+        
+        [self.view addSubview:bookTableView];
     }
-    
-    
-    
-    
-    //11057906702270625234
-    //11057906702270625234
-    //11057906702270625234
-    
-    NSArray *aTagsData = [self parseData:response];
-    
-    NSLog(@"%@",aTagsData);
-    
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"输入错误！" message:@"请输入关键字查询！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+    }
 }
 
 //解析xml
@@ -144,15 +171,22 @@
     TFHpple *doc = [[TFHpple alloc] initWithData:data isXML:NO];
     
     //在页面中a标签
-    NSArray *aTags = [doc searchWithXPathQuery:@"//a"];
+    NSArray *aTags = [doc searchWithXPathQuery:@"//a[@target='_blank']"];
     [doc release];
     return aTags;
-    
 }
 
-
-
-
+//获取a标签内的相关内容
+-(NSMutableArray *)getAContent:(NSArray *)aTags
+{
+    aHarfContentArray = [[NSMutableArray alloc] init];
+    for (int i = 0;i < [aTags count]; i++) {
+        TFHppleElement *element = [aTags objectAtIndex:i];
+        NSString *str = [[element text] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [aHarfContentArray addObject:str];
+    }
+    return aHarfContentArray;
+}
 
 // called when 'return' key pressed. return NO to ignore.
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -163,6 +197,44 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+//返回的节点的行数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [aHarfContentArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"cell";
+    
+    UITableViewCell *cell = [bookTableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    }
+    
+    //给cell添加数据
+    [[cell textLabel] setText:[aHarfContentArray objectAtIndex:indexPath.row]];
+    
+    return cell;
+}
+
+-(void)dealloc
+{
+    [bookTableView release];
+    [aHarfArray release];
+    [aHarfContentArray release];
+    [super dealloc];
+}
+
 
 
 @end
