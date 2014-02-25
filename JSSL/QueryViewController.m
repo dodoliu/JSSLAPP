@@ -188,28 +188,32 @@
     return aHarfContentArray;
 }
 
-// called when 'return' key pressed. return NO to ignore.
+//点了return按钮后关闭键盘
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    
-    
-    //[textField resignFirstResponder];
     [textField resignFirstResponder];
     return YES;
 }
 
-
+//table共有几个分区
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
-//返回的节点的行数
+//table每个分区的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [aHarfContentArray count];
 }
 
+//table每个分区的标题
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"(搜索结果来自互联网，如果侵犯您的权益，请联系我们！)";
+}
+
+//绑定行数据
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"cell";
